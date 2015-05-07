@@ -14,5 +14,9 @@
   "bugs": {
     "url": "https://github.com/balihoo-aharl/regionalsite-standard/issues"
   },
-  "homepage": "https://github.com/balihoo-aharl/regionalsite-standard#README.md"
+  "homepage": "https://github.com/balihoo-aharl/regionalsite-standard#README.md",
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-watch": "^4.2.4"
+  }
 }
