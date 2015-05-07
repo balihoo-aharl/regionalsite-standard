@@ -1,0 +1,12 @@
+{
+  "name": "Standard RegionalSite",
+  "description": "Standard RegionalSite template",
+  "channel": "Local Websites",
+  "creativeFormId": 0,
+  "companionFormId": 0,
+  "pages": [
+    "index"
+  ],
+  "template": "main",
+  "port": 8088
+}

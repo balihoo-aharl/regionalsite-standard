@@ -1,0 +1,18 @@
+{
+  "name": "regionalsite-standard",
+  "version": "0.0.0",
+  "description": "Standard RegionalSite template for use with balihoo-creative",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/balihoo-aharl/regionalsite-standard.git"
+  },
+  "keywords": [
+    "balihoo-creative"
+  ],
+  "author": "Andy Harl",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/balihoo-aharl/regionalsite-standard/issues"
+  },
+  "homepage": "https://github.com/balihoo-aharl/regionalsite-standard#README.md"
+}
