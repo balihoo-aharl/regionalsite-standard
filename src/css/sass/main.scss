@@ -1,0 +1,47 @@
+/* ==========================================================================
+   Styles
+   ========================================================================== */
+
+header {
+  .jumbotron {
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+  .navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+}
+
+.logo {
+  position: relative;
+
+  img {
+    position: absolute;
+    padding: 0 15px; // this matches the padding of bootstraps grid
+    top: 50%;
+    transform: translateY(25%);
+  }
+}
+
+#map-canvas {
+  height: 400px;
+  margin-bottom: 30px;
+}
+
+.affiliate {
+  img {
+    margin-top: 20px;
+  }
+}
+
+.contact-button {
+  margin-top: 10px;
+  display: block;
+}
+
+footer {
+    margin: 50px 0 0;
+    padding: 20px 0;
+    border-top: 1px solid #333;
+}

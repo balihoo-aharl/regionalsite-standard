@@ -17,6 +17,7 @@
   "homepage": "https://github.com/balihoo-aharl/regionalsite-standard#README.md",
   "devDependencies": {
     "gulp": "^3.8.11",
+    "gulp-sass": "^2.0.0",
     "gulp-watch": "^4.2.4"
   }
 }

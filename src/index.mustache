@@ -1,38 +1,164 @@
 <header>
 
-	<div class="jumbotron primary">
+  <div class="jumbotron primary">
+    <div class="container">
+      <div class="row">
+        <div class="logo col-xs-12 col-sm-2">
+          <img src="{{assets.img.logo}}" class="img-responsive">
+        </div>
+        <div class="col-xs-12 col-sm-5">
+          <h1>{{brandName}}</h1>
+          <h2>Location(s) serving the {{city}}, {{stateProvinceCode}} Area</h2>
+        </div>
+        <div class="col-xs-12 col-sm-5">
+          <p>{{description}}</p>
+        </div>
+      </div><!-- /.row -->
+    </div><!-- /.container -->
+  </div><!-- /.jumbotron -->
 
-		<div class="container">
-
-			<div class="row">
-
-				<div class="col-xs-12 col-sm-2">
-					<img src="{{assets.img.logo}}" class="img-responsive">
-				</div>
-
-				<div class="col-xs-12 col-sm-10">
-					<h1>AAMCO Greater Delaware Valley</h1>
-					<h2>Serving the Pennsylvania, New Jersey, and Delaware Area</h2>
-				</div>
-
-			</div><!-- /.row -->
-
-		</div><!-- /.container -->
-
-	</div><!-- /.jumbotron -->
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#brandNav">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div><!-- /.navbar-header -->
+      <div class="collapse navbar-collapse" id="brandNav">
+        <ul class="nav navbar-nav">
+          <li><a href="#" title="Link One">Link One</a></li>
+          <li><a href="#" title="Link Two">Link Two</a></li>
+          <li><a href="#" title="Link Three">Link Three</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#" title="Link One">Facebook</a></li>
+          <li><a href="#" title="Link Two">LinkedIn</a></li>
+          <li><a href="#" title="Link Three">Twitter</a></li>
+        </ul>
+      </div>
+    </div><!-- /.container -->
+  </nav><!-- /.navbar -->
 
 </header><!-- /header -->
 
+
+<div class="map">
+  <div id="map-canvas"></div>
+</div>
+
+
 <div class="container">
 
-	<div class="row">
-		<div class="col-xs-12">
-			<div id="map-canvas"></div>
-		</div>
-	</div>
-
-	<div class="row">
-
-	</div>
+  <div class="row">
+    {{#affiliates}}
+    <div class="affiliate col-xs-12 col-sm-4">
+      <div class="row">
+        <div class="col-xs-12 col-sm-3">
+          <img src="{{{Logo}}}" class="img-responsive">
+        </div>
+        <div class="col-xs-12 col-sm-9">
+          <h3>{{DisplayName}}</h3>
+          {{#Address}}
+          <p>
+            {{Address}}<br>
+            {{#Address02}}{{.}}<br>{{/Address02}}
+            {{City01}}, {{State01}} {{Zip01}}<br>
+            {{/Address}}
+            {{#Phone}}{{.}}<br>{{/Phone}}
+            {{#Email}}{{.}}<br>{{/Email}}
+            {{#Web}}<a href="{{{.}}}">Visit Website</a><br>{{/Web}}
+            <button type="button" class="btn btn-primary btn-sm contact-button" data-toggle="modal" data-target="#contactModal" data-displayname="{{DisplayName}}" data-aemail="{{Email}}">
+              Contact
+            </button>
+          </p>
+        </div>
+      </div>
+    </div>
+    {{/affiliates}}
+  </div>
 
 </div>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2015, {{brandName}}</p>
+  </div>
+</footer>
+
+<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close modal-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="contactModalLabel">Contact <span class="location-name">Location</span></h4>
+      </div>
+      <form id="contactForm" class="form-horizontal">
+        <input name="affiliatecompanyid" value="{{{AffiliateCompanyID}}}" type="hidden">
+        <input name="listname" value="Lead Capture Form" type="hidden">
+        <input name="processURL" value="{{{siteinfo.leadcaptureurl}}}" type="hidden">
+        <input name="affiliateemail" value="" type="hidden">
+        <div class="modal-body">
+          <div class="alert alert-success form-success hidden">
+            <p><strong>Your submission was successful.</strong> Location will be in touch with you shortly.</p>
+          </div>
+          <div class="alert alert-danger form-error hidden">
+            <p><strong>Oops, something went wrong.</strong> This isn't your fault. Please try again.</p>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Name</label>
+            <div class="col-sm-10">
+              <div class="row">
+                <label class="sr-only control-label" for="inputFirstName">First Name</label>
+                <div class="col-sm-6">
+                  <input name="fName" type="text" class="form-control" id="inputFirstName" placeholder="First Name" required>
+                  <div class="help-block with-errors"></div>
+                </div>
+                <label class="sr-only control-label" for="inputLastName">Last Name</label>
+                <div class="col-sm-6">
+                  <input name="lName" type="text" class="form-control" id="inputLastName" placeholder="Last Name" required>
+                  <div class="help-block with-errors"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-10">
+              <input name="email" type="email" class="form-control" id="inputEmail" placeholder="Email" required>
+              <div class="help-block with-errors"></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">City, State & Zip</label>
+            <div class="col-sm-10">
+              <div class="row">
+                <label class="sr-only control-label" for="inputCity">City</label>
+                <div class="col-sm-4">
+                  <input name="city" type="text" class="form-control" id="inputCity" placeholder="City" required>
+                  <div class="help-block with-errors"></div>
+                </div>
+                <label class="sr-only control-label" for="inputState">State</label>
+                <div class="col-sm-4">
+                  <input name="state" type="text" class="form-control" id="inputState" placeholder="State" required>
+                  <div class="help-block with-errors"></div>
+                </div>
+                <label class="sr-only control-label" for="inputZip">Zip</label>
+                <div class="col-sm-4">
+                  <input name="zip" type="text" class="form-control" id="inputZip" placeholder="Zip" required>
+                  <div class="help-block with-errors"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default modal-close" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
