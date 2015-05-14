@@ -52,6 +52,7 @@
   };
 
   setTimeout(function() {
+    // Doing this because even on a paid account the queries are throttled after 10
     mQueue = setInterval(markerQueue, 1000);
   }, 1500);
 
