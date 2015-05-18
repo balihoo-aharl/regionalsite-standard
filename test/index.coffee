@@ -44,3 +44,4 @@ QUnit.test 'Affiliate email populating in modal', (assert) ->
   #   assert.strictEqual actual, expected, button.data('displayname') + ' email populating in modal form'
   #   #clean up after each test
   #   modal.modal('hide')
+
